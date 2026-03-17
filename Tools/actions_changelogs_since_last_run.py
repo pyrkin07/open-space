@@ -36,7 +36,11 @@ def main():
     if DEBUG:
         last_changelog_stream = DEBUG_CHANGELOG_FILE_OLD.read_text()
     else:
-        last_changelog_stream = get_last_changelog()
+        try:
+            last_changelog_stream = get_last_changelog()
+        except RuntimeError as e:
+            print(f"No previous run found ({e}), treating as first run — sending all entries.")
+            last_changelog_stream = "Entries: []"
 
     last_changelog = yaml.safe_load(last_changelog_stream) or {}
     with open(CHANGELOG_FILE, "r") as f:
