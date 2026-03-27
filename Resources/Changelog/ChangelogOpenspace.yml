@@ -20,3 +20,10 @@ Entries:
   id: 3
   time: '2026-03-24T03:10:21.000000+00:00'
   url: https://github.com/ss14-art/open-space/pull/23
+- author: ReWAFFlution
+  changes:
+  - type: Add
+    message: Добавил кошачьи ушки и хвосты.
+  id: 4
+  time: '2026-03-27T01:35:17.000000+00:00'
+  url: https://github.com/ss14-art/open-space/pull/26
