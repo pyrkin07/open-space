@@ -23,7 +23,7 @@ namespace Content.Client._Funkystation.Audio
         private TimeSpan _nextTickTime;
         private TimeSpan _currentInterval;
         private TimeSpan _minInterval = TimeSpan.FromSeconds(0.3);
-        private TimeSpan _initialInterval = TimeSpan.FromSeconds(1.5);
+        private TimeSpan _initialInterval = TimeSpan.FromSeconds(1);
         private TimeSpan _accelDuration = TimeSpan.FromSeconds(12.0);
         private float _startPitch = 1.0f;
         private float _maxPitch = 1.25f;
