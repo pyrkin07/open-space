@@ -1,18 +1,20 @@
-using System;
+using Content.Shared.Damage.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Robust.Client.Audio;
 using Robust.Shared.Audio;
 using AudioComponent = Robust.Shared.Audio.Components.AudioComponent;
 using Robust.Shared.Timing;
 using Robust.Shared.Player;
 
-namespace Content.Client.Audio
+namespace Content.Client._Funkystation.Audio
 {
     public sealed class CriticalHeartbeatSystem : EntitySystem
     {
         [Dependency] private readonly AudioSystem _audio = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
 
         private EntityUid? _trackedEntity;
         private bool _playing;
@@ -57,7 +59,7 @@ namespace Content.Client.Audio
         {
             if (_trackedEntity == null || args.Target != _trackedEntity)
                 return;
-            
+
             // TODO: whenever we get softcrit i want this to be updated to begin on softcrit instead
             if (args.NewMobState == MobState.Critical)
             {
@@ -103,8 +105,18 @@ namespace Content.Client.Audio
             var now = _timing.CurTime;
             _elapsed = now - _startTime;
 
-            // calc progress over time since entering critical
-            var progress = MathF.Min(1f, MathF.Max(0f, (float)(_elapsed.TotalSeconds / _accelDuration.TotalSeconds)));
+            // Prefer damage-based progress (how close to death).
+            float progress;
+            if (EntityManager.TryGetComponent(_trackedEntity, out DamageableComponent? damageable) &&
+                _mobThresholdSystem.TryGetDeadPercentage(_trackedEntity.Value, damageable.TotalDamage, out var pct))
+            {
+                progress = MathF.Min(1f, MathF.Max(0f, pct.Value.Float()));
+            }
+            else
+            {
+                // time-based progress so we still accelerate if for some reason the entity doesnt have thresholds (HOW?)
+                progress = MathF.Min(1f, MathF.Max(0f, (float)(_elapsed.TotalSeconds / _accelDuration.TotalSeconds)));
+            }
 
             var intervalSeconds = _initialInterval.TotalSeconds - progress * (_initialInterval - _minInterval).TotalSeconds;
             _currentInterval = TimeSpan.FromSeconds(intervalSeconds);
