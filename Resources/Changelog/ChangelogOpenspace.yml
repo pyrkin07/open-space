@@ -54,3 +54,10 @@ Entries:
   id: 7
   time: '2026-04-12T08:33:48.000000+00:00'
   url: https://github.com/ss14-art/open-space/pull/33
+- author: ReWAFFlution
+  changes:
+  - type: Tweak
+    message: Переработаны французский, немецкий, змеиный, собачий и кошачий акценты.
+  id: 8
+  time: '2026-04-12T19:04:43.000000+00:00'
+  url: https://github.com/ss14-art/open-space/pull/36
