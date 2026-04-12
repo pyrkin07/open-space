@@ -2,9 +2,10 @@
 # НЕ ИЗМЕНЯТЬ ФАЙЛ ПРИ АПСТРИМЕ/ОБНОВЛЕНИИ.
 #
 # Код
-/Content.*/** @ReWAFFlution
+/Content.*/** @ALEXPAN-DEV @ReWAFFlution
+
 # Ресурсы
-# /Resources/Textures/**
+/Resources/Textures/** @ReWAFFlution
 # /Resources/Maps/**
-/Resources/Prototypes/** @ReWAFFlution
+/Resources/Prototypes/** @ALEXPAN-DEV @ReWAFFlution
 /Resources/Locale/** @ReWAFFlution
