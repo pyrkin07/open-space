@@ -14,9 +14,10 @@ Use this skill whenever a change touches inherited upstream code or may introduc
 3. Open `references/edit-types.md` for the expected fork-edit patterns.
 4. Open `references/path-similarity.md` when adding fork-side files.
 5. Open `references/fork-only-content.md` when `_OpenSpace` may be the right home.
-2. Prefer the smallest diff that solves the task.
-3. Avoid `RobustToolbox/` edits unless the task explicitly requires engine work.
-4. Mirror existing folder paths when adding fork-side extensions.
+6. Prefer the smallest diff that solves the task.
+7. Treat `RobustToolbox/` as off-limits unless the task explicitly requires engine work and no content-side path will solve it.
+8. Mirror existing folder paths when adding fork-side extensions.
+9. Prefer reusable extensions and public APIs over one-off branches, special cases, or hardcoded fork behavior.
 
 ## Reference Map
 

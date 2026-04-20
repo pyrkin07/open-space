@@ -9,11 +9,11 @@
 
 ## Useful Commands
 
-- `list`, `help <command>`
-- `vv`, `vvread`, `vvwrite`, `vvinvoke`
-- `sudo ...` for server-console-only commands
-- `net_graph 1`
-- `quickinspect` for paired server/client component inspection
+- `list`, `help <command>`: discover available console commands and their arguments
+- `vv`, `vvread`, `vvwrite`, `vvinvoke`: inspect, read, edit, or invoke values through View Variables
+- `sudo ...` for server-console-only commands: run commands that require server-console permissions
+- `net_graph 1`: show network timing and packet information when checking lag or desync
+- `quickinspect`: inspect paired server/client component state for the same entity faster than manual hopping
 
 ## Prediction Debugging
 

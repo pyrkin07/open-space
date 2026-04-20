@@ -5,6 +5,7 @@
 - find the exact step where the behavior diverges
 - reduce the problem to one event, one system, one state transition, or one missing sync
 - confirm the real failing assumption before changing code
+- after the fix looks right, scan logs once more for warnings or errors that suggest a hidden problem remains
 
 ## Good Questions
 

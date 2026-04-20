@@ -14,6 +14,7 @@
 - handling subtle gameplay edge cases without repo context
 - making up stale or non-standard SS14 patterns
 - producing code that looks right but violates prediction, localization, or fork-maintenance rules
+- adding one-off special cases or hardcoded values when the prompt does not insist on reusable design
 
 ## Rule
 

@@ -4,6 +4,8 @@
 
 - use logs to confirm branches, values, and failure reasons
 - prefer structured, system-scoped logging over random one-off spam
+- use `Debug` or `Info` for temporary tracing, `Warning` for recoverable bad states, and `Error` for real failures
+- prefer a dedicated sawmill so runtime and CI logs show which system emitted the message
 
 ## View Variables
 

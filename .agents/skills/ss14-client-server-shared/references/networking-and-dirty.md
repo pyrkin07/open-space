@@ -6,7 +6,7 @@
 - use `[Serializable, NetSerializable]`
 - prefer `NetEntity` in payloads instead of raw `EntityUid`
 - raise with `RaiseNetworkEvent(...)`
-- receive with `SubscribeNetworkEvent(...)`
+- receive with `SubscribeNetworkEvent(...)`, usually from `Initialize()`
 
 ## Replicated Components
 

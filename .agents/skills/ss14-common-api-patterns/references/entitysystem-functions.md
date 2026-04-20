@@ -11,8 +11,8 @@
 - `EnsureComp<T>(uid)`
 - `RemComp<T>(uid)`
 - `RemCompDeferred<T>(uid)`
-- `Del(uid)`
-- `QueueDel(uid)`
+- `Del(uid)`: delete immediately when the current context is safe for it
+- `QueueDel(uid)`: queue deletion for later; prefer inside handlers, during iteration, or when in doubt
 - `Transform(uid)`
 - `MetaData(uid)`
 - `Name(uid)`

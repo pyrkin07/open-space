@@ -2,7 +2,7 @@
 
 ## Entity
 
-- an `EntityUid`
+- an `EntityUid`, which is the runtime identifier for one entity instance
 - just an identifier and container for components
 
 ## Component

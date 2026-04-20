@@ -12,11 +12,13 @@ Use this skill when the task is about how to collaborate with AI effectively ins
 1. Open `references/ai-strengths-and-risks.md`.
 2. Open `references/prompting-patterns.md` when a prompt or task needs to be framed better.
 3. Open `references/verification-rules.md`.
-4. Treat AI as an accelerator, not the source of truth.
+4. Open `../../rules/ss14-testing-and-validation.md` or `../ss14-tests-authoring/references/test-selection.md` when choosing verification.
+5. Treat AI as an accelerator, not the source of truth.
 
 ## Reference Map
 
 - `references/ai-strengths-and-risks.md`
 - `references/prompting-patterns.md`
 - `references/verification-rules.md`
+- `../../rules/ss14-testing-and-validation.md`
 - `../ss14-tests-authoring/references/test-selection.md`

@@ -3,7 +3,9 @@
 ## Better Prompts
 
 - ask for changes relative to an existing nearby system
-- mention prediction, localization, and reuse constraints explicitly
+- mention prediction, localization, reuse, and engine-boundary constraints explicitly
+- ask for a reusable system API or data-driven solution, not a one-off branch for one call site
+- say explicitly when hardcoded IDs, strings, paths, magic numbers, or special-case behavior are not acceptable
 - give the actual file context or surrounding code when the bug is subtle
 
 ## Example Shapes
@@ -12,6 +14,7 @@
 - write tests for this system, including misuse cases and limits
 - refactor this code without changing behavior
 - use system X as the pattern and keep the result predicted and reusable
+- extend system X with a reusable helper; do not touch `RobustToolbox/` and do not hardcode the new case
 
 ## Rule
 

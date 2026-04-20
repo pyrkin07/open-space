@@ -2,10 +2,10 @@
 
 ## Rules
 
-- Prefer `[DataField]` without a string name on new code unless compatibility requires a custom serialized key.
-- Prefer `ProtoId<T>` or `EntProtoId` over raw prototype ID strings.
+- Prefer `[DataField]` without a string name on new serialized config fields unless compatibility requires a custom serialized key.
+- Keep runtime-only or `readonly` cache fields free of `[DataField]`; `[DataField]` is for serialized content/config.
+- Prefer `ProtoId<T>` for non-entity prototype types and `EntProtoId` for entity prototype IDs instead of raw strings.
 - Use `LocId` for stored localization identifiers.
-- Keep runtime-only fields free of `[DataField]` unless they are truly serialized config.
 
 ## Example Anchor
 
