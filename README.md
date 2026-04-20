@@ -96,17 +96,19 @@ chmod +x runclient.sh
 🛠 Участие в разработке / Community & Contributing
 
 🇷🇺 Мы рады любой помощи в развитии проекта! Пожалуйста, ознакомьтесь с нашими правилами перед тем, как предлагать свои изменения.
+
 🇬🇧 We welcome any help in developing the project! Please read our guidelines before submitting your changes.
 
 · 📖 Как внести вклад (Contributing) — Правила создания Pull Request'ов и требования к коду.
+
 · ⚖️ Кодекс поведения (Code of Conduct) — Правила общения в нашем сообществе.
+
 · 🛡️ Политика безопасности (Security Policy) — Как сообщить о критических уязвимостях и эксплойтах.
 
 ---
 
 ⚖️ Лицензия / License
 
-[!CAUTION]
 🇷🇺 ВНИМАНИЕ: Код репозитория имеет комбинированное лицензирование. Оригинальный код Space Wizards Federation лицензирован под MIT. Наши собственные разработки и изменения подчиняются Пользовательской лицензии (Project License) и требуют подписания CLA.
 
 🇬🇧 CAUTION: The repository code is under a combined license model. The original Space Wizards Federation code is licensed under MIT. Our custom additions and changes are governed by the Project License and require signing a CLA.
