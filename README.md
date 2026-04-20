@@ -1,4 +1,3 @@
-
 <p align="center">
   <img alt="Space Station 14" width="600" src="Resources/Textures/Logo/logo.png" />
 </p>
@@ -23,12 +22,12 @@
 
 ## 🇷🇺 О проекте / 🇬🇧 About the project
 
-**🇷🇺 Русский**  
-**Open Space** — это проект с открытым исходным кодом, нацеленный на создание уникальных механик и приятной игровой атмосферы в игре Space Station 14.  
+**🇷🇺 Русский**
+**Open Space** — это проект с открытым исходным кодом, нацеленный на создание уникальных механик и приятной игровой атмосферы в игре Space Station 14.
 Это игра о выживании на космической станции, где происходят постоянные столкновения между экипажем и антагонистами, стремящимися помешать персоналу достичь своих целей.
 
-**🇬🇧 English**  
-**Open Space** is an open-source project (a direct fork of [Space Wizards Federation / WizDen](https://github.com/space-wizards/space-station-14)) aimed at creating unique mechanics and a pleasant game atmosphere in Space Station 14.  
+**🇬🇧 English**
+**Open Space** is an open-source project aimed at creating unique mechanics and a pleasant game atmosphere in Space Station 14.
 It is a game about survival on a space station featuring constant confrontations between the crew and antagonists designed to prevent the crew from achieving their goals.
 
 ---
@@ -64,12 +63,11 @@ runserver.bat
 runclient.bat
 ```
 
-Готово! Подключитесь к localhost в клиенте и играйте.
+**Готово!** Подключитесь к **localhost** в клиенте и играйте.
 
-Для Release-сборки используйте runserver-Release.bat и runclient-Release.bat
+> Для Release-сборки используйте `runserver-Release.bat` и `runclient-Release.bat`
 
-🐧 Linux / macOS
-
+### 🐧 Linux / macOS
 ```sh
 # 1. Клонируйте репозиторий
 git clone https://github.com/ss14-art/open-space.git
@@ -87,44 +85,77 @@ chmod +x runclient.sh
 ./runclient.sh
 ```
 
-Готово! Подключитесь к localhost в клиенте и играйте.
+**Готово!** Подключитесь к **localhost** в клиенте и играйте.
 
-Для Release-сборки используйте runserver-Release.sh и runclient-Release.sh
-
----
-
-🛠 Участие в разработке / Community & Contributing
-
-🇷🇺 Мы рады любой помощи в развитии проекта! Пожалуйста, ознакомьтесь с нашими правилами перед тем, как предлагать свои изменения.
-
-🇬🇧 We welcome any help in developing the project! Please read our guidelines before submitting your changes.
-
-· 📖 Как внести вклад (Contributing) — Правила создания Pull Request'ов и требования к коду.
-
-· ⚖️ Кодекс поведения (Code of Conduct) — Правила общения в нашем сообществе.
-
-· 🛡️ Политика безопасности (Security Policy) — Как сообщить о критических уязвимостях и эксплойтах.
+> Для Release-сборки используйте `runserver-Release.sh` и `runclient-Release.sh`
 
 ---
 
-⚖️ Лицензия / License
+## 🛠 Участие в разработке / Community & Contributing
+
+**🇷🇺** Мы рады любой помощи в развитии проекта! Пожалуйста, ознакомьтесь с нашими правилами перед тем, как предлагать свои изменения.
+**🇬🇧** We welcome any help in developing the project! Please read our guidelines before submitting your changes.
+
+* 📖 [**Как внести вклад (Contributing)**](CONTRIBUTING.md) — Правила создания Pull Request'ов и требования к коду.
+* ⚖️ [**Кодекс поведения (Code of Conduct)**](CODE_OF_CONDUCT.md) — Правила общения в нашем сообществе.
+* 🛡️ [**Политика безопасности (Security Policy)**](SECURITY.md) — Как сообщить о критических уязвимостях и эксплойтах.
+
+---
+
+## ⚖️ Лицензия / License
 
 > [!CAUTION]
-> 🇷🇺 ВНИМАНИЕ: Код репозитория имеет комбинированное лицензирование. Оригинальный код Space Wizards Federation лицензирован под MIT. Наши собственные разработки и изменения подчиняются Пользовательской лицензии (Project License) и требуют подписания CLA.
+> **🇷🇺 ВНИМАНИЕ:** Репозиторий использует комбинированную модель лицензирования.  
+> Оригинальный код Space Wizards Federation распространяется под лицензией MIT.  
+> Все изменения после коммита `efea656dd33f6296228a5d31be8ffc9f179f4f17` регулируются Project License, если в файле не указано иное.
 >
-> 🇬🇧 CAUTION: The repository code is under a combined license model. The original Space Wizards Federation code is licensed under MIT. Our custom additions and changes are governed by the Project License and require signing a CLA.
+> Некоторые файлы могут распространяться под другими лицензиями (например MPL 2.0), если это явно указано в начале файла через SPDX-заголовок.
+>
+> **🇬🇧 CAUTION:** This repository uses a combined licensing model.  
+> The original Space Wizards Federation code is licensed under MIT.  
+> All changes after commit `efea656dd33f6296228a5d31be8ffc9f179f4f17` are governed by the Project License unless stated otherwise.
+>
+> Some files may be licensed under different terms (e.g. MPL 2.0) if explicitly specified in the file header via SPDX.
 
-Нажмите на раздел для подробностей / Click each section for further information
+---
+
+### 📌 SPDX License Identification
+
+> **🇷🇺** Лицензия конкретного файла может быть указана в его начале, например:
+>
+> ```csharp
+> // SPDX-License-Identifier: MPL-2.0
+> ```
+>
+> В этом случае файл распространяется по указанной лицензии, независимо от Project License.
+>
+> Если SPDX-заголовок отсутствует — применяется Project License (для кода после указанного коммита).
+>
+> **🇬🇧** A file may declare its license at the top using an SPDX header, for example:
+>
+> ```csharp
+> // SPDX-License-Identifier: MPL-2.0
+> ```
+>
+> In such cases, the file is governed by that license instead of the Project License.
+>
+> If no SPDX header is present — the Project License applies (for code after the specified commit).
+
+---
+
+### Нажмите на раздел для подробностей / Click each section for further information
 
 <details>
 <summary><b> Project License </b></summary>
 <br>
 
-![License](https://img.shields.io/badge/License-Project_License-blue?style=for-the-badge)
+![Project License](https://img.shields.io/badge/License-Project_License-blue?style=for-the-badge)
 
-🇷🇺 Все изменения после коммита efea656dd33f6296228a5d31be8ffc9f179f4f17 регулируются условиями LICENSE.TXT. Коммерческое использование и несанкционированный публичный хостинг запрещены.
-
-🇬🇧 All changes after commit efea656dd33f6296228a5d31be8ffc9f179f4f17 are governed by the terms in LICENSE.TXT. Commercial use and unauthorized public hosting are prohibited.
+> **🇷🇺** Все изменения после коммита `efea656dd33f6296228a5d31be8ffc9f179f4f17`, для которых не указана иная лицензия (например через SPDX), регулируются условиями [LICENSE.TXT](LICENSE.TXT).  
+> Коммерческое использование и несанкционированный публичный хостинг запрещены.
+>
+> **🇬🇧** All changes after commit `efea656dd33f6296228a5d31be8ffc9f179f4f17` that do not specify another license (e.g. via SPDX) are governed by [LICENSE.TXT](LICENSE.TXT).  
+> Commercial use and unauthorized public hosting are prohibited.
 
 </details>
 
@@ -132,26 +163,37 @@ chmod +x runclient.sh
 <summary><b> CLA </b></summary>
 <br>
 
-![Agreement](https://img.shields.io/badge/Agreement-CLA-orange?style=for-the-badge)
+![CLA](https://img.shields.io/badge/Agreement-CLA-orange?style=for-the-badge)
 
-🇷🇺 Лицензионное соглашение контрибьютора. Создавая Pull Request в этот репозиторий, вы автоматически соглашаетесь с условиями передачи кода организации ss14-art, описанными в CLA.TXT.
-
-🇬🇧 Contributor License Agreement. By submitting a Pull Request to this repository, you automatically agree to the terms of transferring code to the ss14-art organization, as described in CLA.TXT.
+> **🇷🇺** Лицензионное соглашение контрибьютора. Создавая Pull Request, вы соглашаетесь с передачей прав на код организации ss14-art, как описано в [CLA.TXT](CLA.TXT).
+>
+> **🇬🇧** Contributor License Agreement. By submitting a Pull Request, you agree to transfer rights to the ss14-art organization as described in [CLA.TXT](CLA.TXT).
 
 </details>
 
 <details>
-<summary><b> MIT License & MPL-2.0 </b></summary>
+<summary><b> MIT License </b></summary>
 <br>
 
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MPL--2.0-orange?style=for-the-badge)
+![MIT License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-🇷🇺 Оригинальный код Space Wizards Federation, а также вся история коммитов до efea656dd33f6296228a5d31be8ffc9f179f4f17 распространяются на условиях MIT License.
-Код под лицензией MPL-2.0 принимается в проект наравне с MIT (требования копилефта ограничиваются только изменёнными файлами) и также подпадает под действие CLA.
+> **🇷🇺** Оригинальный код Space Wizards Federation, а также история коммитов до `efea656dd33f6296228a5d31be8ffc9f179f4f17`, распространяются по лицензии [MIT](MIT.TXT).
+>
+> **🇬🇧** The original Space Wizards Federation code and all commits prior to `efea656dd33f6296228a5d31be8ffc9f179f4f17` are licensed under [MIT](MIT.TXT).
 
-🇬🇧 The original Space Wizards Federation code, as well as all commit history prior to efea656dd33f6296228a5d31be8ffc9f179f4f17, are distributed under the terms of the MIT License.
-Code licensed under MPL-2.0 is accepted into the project on the same terms as MIT (copyleft only applies to modified files) and is also subject to the CLA.
+</details>
+
+<details>
+<summary><b> MPL 2.0 License (per-file)</b></summary>
+<br>
+
+![MPL-2.0 License](https://img.shields.io/badge/License-MPL_2.0-yellow?style=for-the-badge)
+
+> **🇷🇺** Некоторые файлы могут распространяться под лицензией MPL 2.0, если это указано в их начале через SPDX-заголовок.  
+> В таком случае применяется лицензия MPL 2.0 вместо Project License.
+>
+> **🇬🇧** Some files may be licensed under MPL 2.0 if specified via an SPDX header at the top of the file.  
+> In such cases, MPL 2.0 applies instead of the Project License.
 
 </details>
 
@@ -159,10 +201,10 @@ Code licensed under MPL-2.0 is accepted into the project on the same terms as MI
 <summary><b> CC 3.0 BY-SA </b></summary>
 <br>
 
-![License](https://img.shields.io/badge/License-CC_3.0_BY--SA-lightblue?style=for-the-badge)
+![Creative Commons 3.0 BY-SA](https://img.shields.io/badge/License-CC_3.0_BY--SA-lightblue?style=for-the-badge)
 
-🇷🇺 Все остальные ресурсы (Assets), не относящиеся к коду, включая иконки и звуковые файлы, лицензированы по лицензии Creative Commons 3.0 BY-SA, если иное не указано в папке или файле.
-
-🇬🇧 All other non-code Assets, including icons and sound files, are licensed under the Creative Commons 3.0 BY-SA license unless otherwise noted in the folder or file.
+> **🇷🇺** Все ресурсы (Assets), не относящиеся к коду (иконки, звуки и т.д.), лицензированы по [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/), если не указано иное.
+>
+> **🇬🇧** All non-code assets (icons, sounds, etc.) are licensed under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) unless stated otherwise.
 
 </details>
