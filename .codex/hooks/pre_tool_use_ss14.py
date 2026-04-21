@@ -15,15 +15,15 @@ BLOCK_PATTERNS = (
         "Recursive delete blocked for this SS14 repo.",
     ),
     (
-        re.compile(r"\bRemove-Item\b.*\b-Recurse\b.*\b-Force\b", re.IGNORECASE),
+        re.compile(r"\bRemove-Item\b.*\s-Recurse\b.*\s-Force\b|\bRemove-Item\b.*\s-Force\b.*\s-Recurse\b", re.IGNORECASE),
         "Recursive PowerShell delete blocked for this SS14 repo.",
     ),
     (
-        re.compile(r"\b(?:rd|rmdir)\b.*\b/s\b.*\b/q\b", re.IGNORECASE),
+        re.compile(r"\b(?:rd|rmdir)\b.*\s/s\b.*\s/q\b|\b(?:rd|rmdir)\b.*\s/q\b.*\s/s\b", re.IGNORECASE),
         "Recursive directory delete blocked for this SS14 repo.",
     ),
     (
-        re.compile(r"\bdel\b.*\b/s\b.*\b/q\b", re.IGNORECASE),
+        re.compile(r"\bdel\b.*\s/s\b.*\s/q\b|\bdel\b.*\s/q\b.*\s/s\b", re.IGNORECASE),
         "Recursive file delete blocked for this SS14 repo.",
     ),
 )
