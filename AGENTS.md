@@ -50,6 +50,10 @@ If the task touches `Appearance`, `GenericVisualizer`, visual state enums, or sp
 
 - `ss14-graphics-generic-visualizer-appearance`
 
+If the task touches sprites, RSI metadata, overlays, shaders, or custom client visual effects:
+
+- `ss14-sprite-overlays-shaders`
+
 If the task adds tests or you need to choose the right test layer:
 
 - `ss14-tests-authoring`
@@ -68,6 +72,7 @@ If the task is about bug hunting, VV, logs, breakpoints, or runtime inspection:
 If the task touches common gameplay helpers such as entity-system methods, spawning, prototypes, audio, popups, or random:
 
 - `ss14-common-api-patterns`
+- `ss14-audio` when the work changes audio routing, sound assets, sound collections, or predicted sound feedback
 
 If the task ports code or assets from another repository, or needs license or attribution guidance:
 
@@ -77,9 +82,37 @@ If the task is about how to use AI tools effectively in this repo:
 
 - `ss14-ai-workflow`
 
-If the task edits XAML, BUI flows, client windows, or UI state:
+If the task touches atmospherics, gases, fire, pressure, pipes, atmos devices, or atmos UI:
+
+- `ss14-atmos`
+
+If the task touches transforms, coordinates, grids, maps, anchoring, movement, collision, fixtures, or physics:
+
+- `ss14-transform-physics`
+
+If the task touches PVS, visibility, network interest, PVS filters, PVS overrides, or code that must tolerate entities leaving PVS:
+
+- `ss14-pvs`
+
+If the task edits XAML windows, controls, code-behind, or client UI layout:
+
+- `ss14-ui-xaml`
+
+If the task edits BUI flows, UI keys, BUI state/messages, or `BoundUserInterface` classes:
 
 - `ss14-ui-bui`
+
+If the task edits EUI flows, `BaseEui`, `EuiStateBase`, `EuiMessageBase`, or admin/debug UI sessions:
+
+- `ss14-ui-eui`
+
+If the task touches database models, EF Core contexts, migrations, persistence services, or schema compatibility:
+
+- `ss14-databases-migrations`
+
+If the task touches NPCs, HTN, pathfinding, steering, mob AI, AI debug overlays, or NPC prototypes:
+
+- `ss14-npc-ai`
 
 If a task spans multiple gameplay/resource areas and you need a broad map first:
 

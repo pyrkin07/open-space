@@ -1,72 +1,67 @@
 ---
 name: ss14-ui-bui
-description: Implement or review SS14 client UI work. Use when editing `.xaml` or `.xaml.cs` files, bound user interfaces, client windows, style classes, or UI state updates in `Content.Client`, especially when tracing the full shared/server/client chain behind a window, BUI, or predicted interaction.
+description: Work with SS14 Bound User Interfaces, BUI state and messages, UI keys, `BoundUserInterface` client classes, server-side UI handlers, predicted BUI actions, and shared BUI contracts.
 ---
 
-# SS14 UI and BUI
+# SS14 BUI
 
-Use established SS14 and Robust UI patterns instead of inventing new ones.
+Use this skill for entity-bound UI flows. Load `ss14-ui-xaml` as well when editing the paired window layout.
 
-Favor XAML-first layouts, localized text, and predicted-safe client updates. Use the reference files to map the full UI chain before changing code.
+BUIs sit on top of entity state and network messages. Keep the server authoritative, use predicted messages for immediate local actions, and avoid duplicating state that the client already receives through networked components.
 
 ## Workflow
 
-1. Open [ui-flow-map.md](references/ui-flow-map.md) first.
-- Use it to trace shared state, server handlers, client windows, and localization for the feature.
-2. Open [xaml-window-patterns.md](references/xaml-window-patterns.md) for layout conventions.
-3. Open [predicted-bui-patterns.md](references/predicted-bui-patterns.md) when the UI action should feel immediate.
+1. Trace the whole BUI chain before editing.
+- Shared: UI key, state, messages, component state, and predicted contracts.
+- Server: authority, validation, state construction, and message handling.
+- Client: `BoundUserInterface`, window creation, state application, and outgoing messages.
 
-2. Find the full UI chain before editing.
-- Typical paths include a shared component or BUI state in `Content.Shared`, a client BUI/controller in `Content.Client`, paired `.xaml` and `.xaml.cs` files, and sometimes a server-side system that handles messages.
-- Reuse nearby windows and controls in the same feature area before creating a brand-new structure.
+2. Keep state ownership clear.
+- Prefer reading existing networked component state when the client already has it.
+- Add BUI state only for data that is actually UI-specific or not otherwise replicated.
+- Dirty authoritative component state when server actions change replicated data.
 
-3. Prefer XAML-first UI.
-- Use XAML for new windows and controls instead of constructing the entire UI in C#.
-- Keep `.xaml` and `.xaml.cs` paired.
-- Reuse `FancyWindow`, existing style classes, and nearby patterns before editing global stylesheets.
-- If you do add styles, keep them narrowly scoped and consistent with nearby SS14 UI.
+3. Use predicted BUI paths when appropriate.
+- Use predicted messages for local player actions that should feel immediate.
+- Keep predicted shared logic deterministic and safe to replay.
+- Avoid duplicate popups, audio, or visual feedback between prediction and authoritative updates.
 
-4. Keep predicted and networked UI honest.
-- If the client already has the needed data through networked component state, prefer reading that state instead of duplicating it in extra BUI state when the existing pattern supports it.
-- For predicted BUIs, update the UI from component state and `AfterAutoHandleStateEvent` where appropriate.
-- Use `SendPredictedMessage` for predicted UI actions instead of non-predicted message sends.
-- Remember that predicted client code may re-run many times; avoid server-only popup, audio, or UI calls in predicted shared paths.
+4. Validate all incoming requests.
+- Treat client BUI messages as requests.
+- Re-check entity validity, access, distance, permissions, and component state on the server.
+- Handle closed UI, deleted owner, and stale target cases.
 
-5. Localize and stabilize text.
-- Localize window titles, labels, buttons, tooltips, and popups.
-- Use specific FTL keys; do not leave hardcoded player-facing strings in UI code.
-
-6. Validate the change.
-- Build the repo or the relevant projects.
-- Run targeted tests when they exist.
-- If local runtime verification is not possible, say that the UI still needs an in-game pass.
+5. Localize and verify.
+- Localize all window text, buttons, labels, and feedback.
+- Build affected shared/server/client projects.
+- Call out when the UI still needs an in-game pass.
 
 ## Reference Map
 
-- `references/ui-flow-map.md`: full UI chain map, client-only hotspots, and docs caveats for this repo.
-- `references/xaml-window-patterns.md`: XAML-first window rules and pairing reminders.
-- `references/predicted-bui-patterns.md`: predicted messaging and replicated-state reminders for BUIs.
-- `../ss14-client-server-shared/references/shared-and-prediction.md`: shared/client/server ownership for predicted UI flows.
-- `../ss14-localization-code/references/localization-in-code.md`: localized UI text usage in client code.
-- `../ss14-localization-strings/references/ftl-naming-and-layout.md`: FTL key layout for UI text.
+- `references/ui-flow-map.md`
+- `references/predicted-bui-patterns.md`
+- `../ss14-ui-xaml/SKILL.md`
+- `../ss14-prediction/references/bui-prediction.md`
+- `../ss14-netcode/SKILL.md`
+- `../ss14-localization-strings/SKILL.md`
 
 ## Useful References
 
 - `references/ui-flow-map.md`
-- `references/xaml-window-patterns.md`
 - `references/predicted-bui-patterns.md`
+- `references/xaml-window-patterns.md`
 
 ## Good File Anchors
 
-- `Content.Client/**/UI/*.xaml`
-- `Content.Client/**/UI/*.xaml.cs`
 - `Content.Client/**/*BoundUserInterface*.cs`
-- `Content.Shared/**/*Component*.cs`
-- `Content.Shared/**/*System*.cs`
+- `Content.Shared/**/*Bui*.cs`
+- `Content.Shared/**/*Ui*.cs`
+- `Content.Server/**/*System*.cs`
+- `Content.Client/**/*.xaml`
 
 ## Common Pitfalls
 
-- Building a new UI entirely in C# when XAML is the house style.
-- Hardcoding player-facing strings instead of localizing them.
-- Duplicating networked state in separate BUI state without a good reason.
-- Forgetting predicted messaging for interactions that should feel immediate.
+- Trusting client BUI messages without server-side validation.
+- Duplicating networked component state in a separate BUI state without a reason.
+- Sending non-predicted messages for immediate local actions.
+- Forgetting localization for labels, buttons, and feedback.
