@@ -35,13 +35,22 @@ Load these skills:
 - Player-facing text in C# or localized component fields: `ss14-localization-code`
 - Network events, `NetEntity`, replicated messages, or shared/server/client network flow: `ss14-netcode`
 - `Appearance`, `GenericVisualizer`, or sprite-layer state work: `ss14-graphics-generic-visualizer-appearance`
+- Sprites, RSI metadata, overlays, shaders, or custom visual effects: `ss14-sprite-overlays-shaders`
 - Writing or selecting tests: `ss14-tests-authoring`
 - Architecture explanation, onboarding, or first-feature guidance: `ss14-prototype-basics`, `ss14-ecs-basics`, `ss14-client-server-shared`
 - Debugging, VV, logs, breakpoints, or runtime investigation: `ss14-debugging-workflow`, `ss14-common-api-patterns`
 - Common gameplay helper APIs such as entity-system methods, spawning, audio, popups, or random: `ss14-common-api-patterns`
+- Audio routing, sound assets, sound collections, ambient/music, or predicted sound feedback: `ss14-audio`
+- Atmospherics, gases, fire, pressure, pipes, atmos devices, or atmos UI: `ss14-atmos`
+- Transforms, coordinates, grids, maps, anchoring, movement, collision, fixtures, or physics: `ss14-transform-physics`
+- PVS, visibility, network interest, PVS filters, PVS overrides, or PVS-sensitive client code: `ss14-pvs`
 - Porting, license checks, or attribution: `ss14-porting-and-licensing`
 - AI workflow and prompt/verification guidance for this repo: `ss14-ai-workflow`
-- XAML, BUI, or client UI: `ss14-ui-bui`
+- XAML windows, controls, code-behind, or client UI layout: `ss14-ui-xaml`
+- BUI flows, UI keys, BUI state/messages, or `BoundUserInterface` classes: `ss14-ui-bui`
+- EUI flows, `BaseEui`, `EuiStateBase`, `EuiMessageBase`, or admin/debug UI sessions: `ss14-ui-eui`
+- Database models, EF Core contexts, migrations, persistence services, or schema compatibility: `ss14-databases-migrations`
+- NPCs, HTN, pathfinding, steering, mob AI, AI debug overlays, or NPC prototypes: `ss14-npc-ai`
 - Broad gameplay/resource routing: `ss14-gameplay-feature`, `ss14-prototypes-locale`
 
 ## Working Notes

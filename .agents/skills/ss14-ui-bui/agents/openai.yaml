@@ -1,4 +1,4 @@
 interface:
-  display_name: "SS14 UI and BUI"
-  short_description: "XAML, BUI, and client UI work for SS14"
-  default_prompt: "Use $ss14-ui-bui to implement or review SS14 XAML, BUI, or client UI work."
+  display_name: "SS14 BUI"
+  short_description: "Bound UI state, messages, and prediction"
+  default_prompt: "Use $ss14-ui-bui for SS14 Bound User Interface state, messages, and predicted UI flows."
