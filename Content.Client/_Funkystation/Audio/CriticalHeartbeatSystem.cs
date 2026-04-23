@@ -7,6 +7,7 @@ using Robust.Shared.Audio;
 using AudioComponent = Robust.Shared.Audio.Components.AudioComponent;
 using Robust.Shared.Timing;
 using Robust.Shared.Player;
+using Content.Shared.Damage.Systems; // OpenSpace-Edit
 
 namespace Content.Client._Funkystation.Audio
 {
@@ -15,6 +16,8 @@ namespace Content.Client._Funkystation.Audio
         [Dependency] private readonly AudioSystem _audio = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
+        [Dependency] private readonly DamageableSystem _damageableSystem = default!; // OpenSpace-Edit
+
 
         private EntityUid? _trackedEntity;
         private bool _playing;
@@ -110,7 +113,13 @@ namespace Content.Client._Funkystation.Audio
             if (EntityManager.TryGetComponent(_trackedEntity, out DamageableComponent? damageable) &&
                 _mobThresholdSystem.TryGetDeadPercentage(_trackedEntity.Value, damageable.TotalDamage, out var pct))
             {
-                progress = MathF.Min(1f, MathF.Max(0f, pct.Value.Float()));
+                // OpenSpace-Edit Start
+                if (EntityManager.TryGetComponent(_trackedEntity, out DamageableComponent? damageable) &&
+                    _mobThresholdSystem.TryGetDeadPercentage(_trackedEntity.Value, _damageableSystem.GetTotalDamage(damageable), out var pct))
+                {
+                    progress = MathF.Min(1f, MathF.Max(0f, pct.Value.Float()));
+                }
+                // OpenSpace-Edit Stop
             }
             else
             {
