@@ -45,7 +45,7 @@ namespace Content.Client._Funkystation.Audio
         private void OnPlayerAttach(LocalPlayerAttachedEvent args)
         {
             _trackedEntity = args.Entity;
-            if (EntityManager.TryGetComponent(_trackedEntity, out MobStateComponent? mob) && mob.CurrentState == MobState.Critical)
+            if (TryComp<MobStateComponent>(_trackedEntity, out var mob) && mob.CurrentState == MobState.Critical) // open space
             {
                 StartHeartbeat();
             }
@@ -113,7 +113,7 @@ namespace Content.Client._Funkystation.Audio
             // open space-edit start
             float progress = MathF.Min(1f, (float)(_elapsed.TotalSeconds / _accelDuration.TotalSeconds));
 
-            if (EntityManager.TryGetComponent<DamageableComponent>(_trackedEntity.Value, out var damageable))
+            if (TryComp<DamageableComponent>(_trackedEntity.Value, out var damageable)) // open space
             {
                 if (_mobThresholdSystem.TryGetDeadPercentage(_trackedEntity.Value, damageable.TotalDamage, out var pct) && pct.HasValue)
                 {
@@ -137,7 +137,7 @@ namespace Content.Client._Funkystation.Audio
                 _nextTickTime = now + _currentInterval;
             }
 
-            if (EntityManager.TryGetComponent(_trackedEntity, out MobStateComponent? mobState))
+            if (TryComp<MobStateComponent>(_trackedEntity, out var mobState)) // open space
             {
                 if (mobState.CurrentState != MobState.Critical)
                 {
