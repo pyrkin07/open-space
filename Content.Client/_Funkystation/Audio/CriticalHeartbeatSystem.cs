@@ -7,7 +7,7 @@ using Robust.Shared.Audio;
 using AudioComponent = Robust.Shared.Audio.Components.AudioComponent;
 using Robust.Shared.Timing;
 using Robust.Shared.Player;
-using Content.Shared.Damage.Systems; // OpenSpace-Edit
+using Content.Shared.Damage.Systems; // open space-edit
 
 namespace Content.Client._Funkystation.Audio
 {
@@ -16,7 +16,6 @@ namespace Content.Client._Funkystation.Audio
         [Dependency] private readonly AudioSystem _audio = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
-        [Dependency] private readonly DamageableSystem _damageableSystem = default!; // OpenSpace-Edit
 
 
         private EntityUid? _trackedEntity;
@@ -105,22 +104,24 @@ namespace Content.Client._Funkystation.Audio
             if (!_playing || _trackedEntity == null)
                 return;
 
+            if (!_timing.IsFirstTimePredicted)
+                return;
+
             var now = _timing.CurTime;
             _elapsed = now - _startTime;
 
-            // OpenSpace-Edit Start
+            // open space-edit start
             float progress = MathF.Min(1f, (float)(_elapsed.TotalSeconds / _accelDuration.TotalSeconds));
 
             if (EntityManager.TryGetComponent<DamageableComponent>(_trackedEntity.Value, out var damageable))
             {
-                // Используем сигнатуру (EntityUid, FixedPoint2, out FixedPoint2?), чтобы фиксануть CS7036
                 if (_mobThresholdSystem.TryGetDeadPercentage(_trackedEntity.Value, damageable.TotalDamage, out var pct) && pct.HasValue)
                 {
-                    float pctFloat = (float) pct.Value; // CS1061 fix
-                    progress = Math.Max(0f, Math.Min(1f, pctFloat)); // CS0117 fix
+                    float pctFloat = (float) pct.Value;
+                    progress = Math.Max(0f, Math.Min(1f, pctFloat));
                 }
             }
-            // OpenSpace-Edit Stop
+            // open space-edit end
 
             var intervalSeconds = _initialInterval.TotalSeconds - progress * (_initialInterval - _minInterval).TotalSeconds;
             _currentInterval = TimeSpan.FromSeconds(intervalSeconds);
