@@ -108,24 +108,19 @@ namespace Content.Client._Funkystation.Audio
             var now = _timing.CurTime;
             _elapsed = now - _startTime;
 
-            // Prefer damage-based progress (how close to death).
-            float progress;
-            if (EntityManager.TryGetComponent(_trackedEntity, out DamageableComponent? damageable) &&
-                _mobThresholdSystem.TryGetDeadPercentage(_trackedEntity.Value, damageable.TotalDamage, out var pct))
+            // OpenSpace-Edit Start
+            float progress = MathF.Min(1f, (float)(_elapsed.TotalSeconds / _accelDuration.TotalSeconds));
+
+            if (EntityManager.TryGetComponent<DamageableComponent>(_trackedEntity.Value, out var damageable))
             {
-                // OpenSpace-Edit Start
-                if (EntityManager.TryGetComponent(_trackedEntity, out DamageableComponent? damageable) &&
-                    _mobThresholdSystem.TryGetDeadPercentage(_trackedEntity.Value, _damageableSystem.GetTotalDamage(damageable), out var pct))
+                // Используем сигнатуру (EntityUid, FixedPoint2, out FixedPoint2?), чтобы фиксануть CS7036
+                if (_mobThresholdSystem.TryGetDeadPercentage(_trackedEntity.Value, damageable.TotalDamage, out var pct) && pct.HasValue)
                 {
-                    progress = MathF.Min(1f, MathF.Max(0f, pct.Value.Float()));
+                    float pctFloat = (float) pct.Value; // CS1061 fix
+                    progress = Math.Max(0f, Math.Min(1f, pctFloat)); // CS0117 fix
                 }
-                // OpenSpace-Edit Stop
             }
-            else
-            {
-                // time-based progress so we still accelerate if for some reason the entity doesnt have thresholds (HOW?)
-                progress = MathF.Min(1f, MathF.Max(0f, (float)(_elapsed.TotalSeconds / _accelDuration.TotalSeconds)));
-            }
+            // OpenSpace-Edit Stop
 
             var intervalSeconds = _initialInterval.TotalSeconds - progress * (_initialInterval - _minInterval).TotalSeconds;
             _currentInterval = TimeSpan.FromSeconds(intervalSeconds);
@@ -141,7 +136,6 @@ namespace Content.Client._Funkystation.Audio
                 _nextTickTime = now + _currentInterval;
             }
 
-            // if entity is dead or otherwise not critical anymore, stop
             if (EntityManager.TryGetComponent(_trackedEntity, out MobStateComponent? mobState))
             {
                 if (mobState.CurrentState != MobState.Critical)
