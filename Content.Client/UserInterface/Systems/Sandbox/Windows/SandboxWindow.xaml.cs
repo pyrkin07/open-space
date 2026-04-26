@@ -1,4 +1,5 @@
 ﻿using Content.Client.Markers;
+using Content.Client._OpenSpace.Administration; // OpenSpace-Edit
 using Content.Client.SubFloor;
 using Content.Client.Stylesheets;
 using Content.Shared.Silicons.StationAi;
@@ -36,6 +37,8 @@ public sealed partial class SandboxWindow : DefaultWindow
     {
         base.Opened();
 
+        var doorMaster = _entManager.System<DoorMasterSystem>(); // OpenSpace-Edit
+
         ToggleSubfloorButton.Pressed = _subFloorSystem.ShowAll;
         ToggleLightButton.Pressed = !_lightManager.Enabled;
         ToggleFovButton.Pressed = !_eyeManager.CurrentEye.DrawFov;
@@ -43,5 +46,6 @@ public sealed partial class SandboxWindow : DefaultWindow
         ShowMarkersButton.Pressed = _markerSystem.MarkersVisible;
         ShowBbButton.Pressed = (_debugPhysicsSystem.Flags & PhysicsDebugFlags.Shapes) != 0x0;
         AiOverlayButton.Pressed = _playerManager.LocalEntity is { } player && _entManager.HasComponent<StationAiOverlayComponent>(player);
+        ToggleDoorsButton.Pressed = doorMaster.Enabled; // OpenSpace-Edit
     }
 }
