@@ -19,7 +19,7 @@ namespace Content.Shared.Damage.Components;
 [RegisterComponent]
 [NetworkedComponent]
 [Access(typeof(DamageableSystem), Other = AccessPermissions.ReadExecute)]
-public sealed partial class DamageableComponent : Component
+public sealed partial class DamageableComponent : Component // OpenSpace-Edit Removed Access for Data
 {
     /// <summary>
     ///     This <see cref="DamageContainerPrototype"/> specifies what damage types are supported by this component.
@@ -47,7 +47,6 @@ public sealed partial class DamageableComponent : Component
     ///     If this data-field is specified, this allows damageable components to be initialized with non-zero damage.
     /// </remarks>
     [DataField]
-    [Access(typeof(DamageableSystem), Other = AccessPermissions.None)]
     public DamageSpecifier Damage = new();
 
     /// <summary>
@@ -58,14 +57,12 @@ public sealed partial class DamageableComponent : Component
     ///     dictionary.
     /// </remarks>
     [ViewVariables]
-    [Access(typeof(DamageableSystem), Other = AccessPermissions.None)]
     public Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> DamagePerGroup = new();
 
     /// <summary>
     ///     The sum of all damages in the DamageableComponent.
     /// </summary>
     [ViewVariables]
-    [Access(typeof(DamageableSystem), Other = AccessPermissions.None)]
     public FixedPoint2 TotalDamage;
 
     [DataField("radiationDamageTypes")]
